@@ -14,12 +14,12 @@ pipeline {
                 sh 'npm install' 
 				sh 'npm version'
 				sh 'ls'
-				sh 'node ./server.js'
+				sh 'echo "help me"'
             }
         }
-		stage('Sonarqube') {
+		stage('sonarqube') {
 			environment {
-			scannerHome = tool 'SonarQubeScanner'
+			scannerHome = tool 'sonarqubescanner'
 		}
 		steps {
 			withSonarQubeEnv('sonarqube') {
