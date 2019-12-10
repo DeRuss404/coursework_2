@@ -21,6 +21,7 @@ pipeline {
 		agent {
 			docker {
 			image 'java:8-alpine'
+			args '-p 4000:4000'
 			}
 		}
 		environment {
