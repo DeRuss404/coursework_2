@@ -8,42 +8,26 @@ pipeline {
          stages {
                  stage('Build Phase') {
 				 steps {
-					sh 'npm install' 
+					sh 'npm install'
+					sh 'npm version'
+					echo "Build complete"
 				 }
                  }
                  stage('Test Phase') {
                  steps {
-                    input('Do you want to proceed?')
+                    echo "Tests complete"
                  }
                  }
                  stage('Packaging Phase') {
-                 when {
-                       not {
-                            branch "master"
-                       }
-                 }
                  steps {
-                       echo "Hello"
+                       echo "Package complete"
                  }
                  }
-                 stage('End Push, DockerHub') {
-                 parallel { 
-                            stage('Unit Test') {
-                           steps {
-                                echo "Running the unit test..."
-                           }
-                           }
-                            stage('Integration test') {
-                              agent {
-                                    docker {
-                                            reuseNode true
-                                            image 'ubuntu'
-                                           }
-                                    }
+                 stage('End Push, DockerHub') {   
+                            stage('docker push') {
                               steps {
-                                echo "Running the integration test..."
+                                echo "Docker push complete"
                               }
-                           }
                            }
                            }
               }
