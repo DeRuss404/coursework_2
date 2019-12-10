@@ -18,12 +18,6 @@ pipeline {
             }
         }
 		stage('sonarqube') {
-		agent {
-			docker {
-			image 'java:8-alpine'
-			args '-p 4000:4000'
-			}
-		}
 		environment {
 			scannerHome = tool 'sonarqubescanner'
 		}
