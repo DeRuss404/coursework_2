@@ -10,8 +10,8 @@ pipeline {
             steps {
                 sh 'npm install' 
 				sh 'npm version'
-				
 				sh 'ls'
+				sh 'npm start server.js'
             }
         }
     }
