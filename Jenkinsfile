@@ -15,6 +15,7 @@ pipeline {
 				sh 'npm version'
 				sh 'ls'
 				sh 'echo "node ./server.js"'
+				sh './sonar-server.properties'
             }
         }
 		stage('sonarqube') {
