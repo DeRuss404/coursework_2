@@ -18,17 +18,5 @@ pipeline {
                     echo "Tests complete"
                  }
                  }
-                 stage('Packaging Phase') {
-                 steps {
-                       echo "Package complete"
-                 }
-                 }
-                 stage('End Push, DockerHub') {   
-                            stage('docker push') {
-                              steps {
-                                echo "Docker push complete"
-                              }
-                           }
-                           }
               }
 }
