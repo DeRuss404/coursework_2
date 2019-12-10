@@ -5,6 +5,9 @@ pipeline {
             args '-p 3000:3000' 
         }
     }
+	environment {
+        CI = 'true' 
+    }
     stages {
         stage('Build') { 
             steps {
@@ -14,5 +17,16 @@ pipeline {
 				sh 'node ./server.js'
             }
         }
+		stage('Test') {
+			steps {
+				sh './jenkins/scripts/test.sh'
+			}
+		}
+		stage('Package n' Push') {
+			steps {
+			
+			
+			}
+		}
     }
 }
