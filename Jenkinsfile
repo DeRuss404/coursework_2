@@ -22,7 +22,7 @@ pipeline {
 				sh './jenkins/scripts/test.sh'
 			}
 		}
-		stage('Package n' Push') {
+		stage('PackagePush') {
 			steps {
 			
 			
