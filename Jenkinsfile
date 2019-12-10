@@ -25,7 +25,7 @@ pipeline {
 		steps {
 			withSonarQubeEnv('sonarqube') {
 			sh 'ls'
-			sh './sonar-server.properties'
+			sh 'sonar-scanner -Dproject.settings=./sonar-server.properties'
 			sh "${scannerHome}/bin/sonar-scanner"
         }
 			timeout(time: 10, unit: 'MINUTES') {
