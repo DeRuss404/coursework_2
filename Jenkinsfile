@@ -14,7 +14,7 @@ pipeline {
                 sh 'npm install' 
 				sh 'npm version'
 				sh 'ls'
-				sh 'echo "help me"'
+				sh 'node ./server.js'
             }
         }
 		stage('sonarqube') {
