@@ -20,7 +20,7 @@ pipeline {
 		stage('sonarqube') {
 		agent {
 			docker {
-			image 'maven:3-alpine'
+			image 'java:8-alpine'
 			}
 		}
 		environment {
