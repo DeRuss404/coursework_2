@@ -15,11 +15,11 @@ pipeline {
 				sh 'npm version'
 				sh 'ls'
 				sh 'echo "node ./server.js"'
-				sh './sonar-server.properties'
             }
         }
 		stage('sonarqube') {
-			environment {
+		agent {     docker   'maven:3-alpine'   }
+		environment {
 			scannerHome = tool 'sonarqubescanner'
 		}
 		steps {
