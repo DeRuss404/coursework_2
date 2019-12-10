@@ -24,7 +24,8 @@ pipeline {
 		}
 		steps {
 			withSonarQubeEnv('sonarqube') {
-			sh '/home/coursework_2/sonar-server.properties'
+			sh 'ls'
+			sh './sonar-server.properties'
 			sh "${scannerHome}/bin/sonar-scanner"
         }
 			timeout(time: 10, unit: 'MINUTES') {
