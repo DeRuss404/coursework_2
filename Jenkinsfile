@@ -1,17 +1,22 @@
 pipeline {
-         agent any
+        agent {
+			docker {
+				image 'node:6-alpine' 
+				args '-p 3000:3000' 
+			}
+		}
          stages {
-                 stage('One') {
-                 steps {
-                     echo 'Hi, this is Zulaikha from edureka'
+                 stage('Build Phase') {
+				 steps {
+					sh 'npm install' 
+				 }
                  }
-                 }
-                 stage('Two') {
+                 stage('Test Phase') {
                  steps {
                     input('Do you want to proceed?')
                  }
                  }
-                 stage('Three') {
+                 stage('Packaging Phase') {
                  when {
                        not {
                             branch "master"
@@ -21,7 +26,7 @@ pipeline {
                        echo "Hello"
                  }
                  }
-                 stage('Four') {
+                 stage('End Push, DockerHub') {
                  parallel { 
                             stage('Unit Test') {
                            steps {
