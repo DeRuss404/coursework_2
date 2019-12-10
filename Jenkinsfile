@@ -22,10 +22,5 @@ pipeline {
 				sh './jenkins/scripts/test.sh'
 			}
 		}
-		stage('PackagePush') {
-			steps {
-				echo "annoying declaritive programming"
-			}
-		}
     }
 }
