@@ -12,6 +12,7 @@ pipeline {
 				sh 'npm version'
 				sh 'ls'
 				sh 'node ./server.js'
+				sh 'killall node'
             }
         }
     }
