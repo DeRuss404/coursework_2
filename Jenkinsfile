@@ -24,8 +24,7 @@ pipeline {
 		}
 		stage('PackagePush') {
 			steps {
-			
-			
+				echo "annoying declaritive programming"
 			}
 		}
     }
