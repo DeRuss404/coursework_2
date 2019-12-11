@@ -4,10 +4,16 @@ pipeline {
         CI = 'true' 
     }
     stages {
-		stage('Docker build package') {
+		stage('Clone repo') {
 		steps {
-			sh 'echo "placeholder package"'
-			def app = docker.build("coursework")
+			checkout scm
+			sh 'echo "Repo Cloned"'
+		}
+		}
+		stage('Docker build image') {
+		steps {
+			app = docker.build("DeRuss404/coursework_2")
+			sh 'echo "Docker image built"'
 		}
 		}
 		stage('Sonarqube Test') {
@@ -24,8 +30,12 @@ pipeline {
         }
 		}
 		}
-		stage('Docker push package') {
+		stage('Docker push image') {
 		steps {
+			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+			}
 			sh 'echo "placeholder push"'
 		}
 		}
