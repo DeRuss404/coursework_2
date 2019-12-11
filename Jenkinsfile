@@ -1,8 +1,10 @@
-node {
+pipeline {
 	agent any
 	environment {
         CI = 'true' 
     }
+    stages {
+	node{
 		stage('Clone repo') {
 		steps {
 			checkout scm
@@ -39,3 +41,5 @@ node {
 		}
 		}
     }
+	}
+}
