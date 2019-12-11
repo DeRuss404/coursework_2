@@ -33,12 +33,12 @@ pipeline {
 		}
 		stage('Docker package') {
 		steps {
-			sh 'echo package'
+			sh 'echo "placeholder package"'
 		}
 		}
 		stage('Docker push') {
 		steps {
-			sh 'echo push'
+			sh 'echo "placeholder push"'
 		}
 		}
     }
