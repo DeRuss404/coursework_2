@@ -27,7 +27,7 @@ pipeline {
 		stage('Docker build and push image') {
 		steps {
 			script{
-				app = docker.build("DeRuss404/coursework_2")
+				app = docker.build("deruss404/coursework_2")
 				sh 'echo "Docker image built"'
 			
 				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
