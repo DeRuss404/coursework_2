@@ -18,15 +18,9 @@ pipeline {
 				sh 'echo "node ./server.js"'
             }
         }
-		stage('sonarqube Test') {
+		stage('Sonarqube Test') {
 		environment {
 			scannerHome = tool 'sonarqubescanner'
-		}
-		agent {
-			docker {
-				image 'node:6-alpine' 
-				args '-p 3000:3000' 
-			}
 		}
 		steps {
 			withSonarQubeEnv('sonarqube') {
