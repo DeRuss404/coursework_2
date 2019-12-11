@@ -10,12 +10,6 @@ pipeline {
 			sh 'echo "Repo Cloned"'
 		}
 		}
-		stage('Docker build image') {
-		steps {
-			app = docker.build("DeRuss404/coursework_2")
-			sh 'echo "Docker image built"'
-		}
-		}
 		stage('Sonarqube Test') {
 		environment {
 			scannerHome = tool 'sonarqubescanner'
@@ -30,8 +24,11 @@ pipeline {
         }
 		}
 		}
-		stage('Docker push image') {
+		stage('Docker build and push image') {
 		steps {
+			app = docker.build("DeRuss404/coursework_2")
+			sh 'echo "Docker image built"'
+			
 			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
