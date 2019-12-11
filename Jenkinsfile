@@ -4,7 +4,6 @@ pipeline {
         CI = 'true' 
     }
     stages {
-	node{
 		stage('Clone repo') {
 		steps {
 			checkout scm
@@ -41,5 +40,4 @@ pipeline {
 		}
 		}
     }
-	}
 }
