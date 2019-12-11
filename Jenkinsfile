@@ -1,4 +1,4 @@
-Node {
+node {
 	agent any
 	environment {
         CI = 'true' 
