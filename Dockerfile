@@ -5,7 +5,3 @@ HEALTHCHECK --interval=5s \
             CMD curl -f http://52.229.220.160:8080 || exit 1
 
 EXPOSE 8080
-
-COPY server.js .
-
-CMD node server.js
