@@ -6,8 +6,8 @@ pipeline {
     stages {
 		stage('Docker build package') {
 		steps {
-			app = docker.build("coursework")
 			sh 'echo "placeholder package"'
+		}
 		}
 		stage('Sonarqube Test') {
 		environment {
@@ -21,7 +21,6 @@ pipeline {
 			timeout(time: 10, unit: 'MINUTES') {
 			waitForQualityGate abortPipeline: true
         }
-		}
 		}
 		}
 		stage('Docker push package') {
