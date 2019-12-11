@@ -4,6 +4,11 @@ pipeline {
         CI = 'true' 
     }
     stages {
+		stage('Docker build package') {
+		steps {
+			app = docker.build("coursework")
+			sh 'echo "placeholder package"'
+		}
 		stage('Sonarqube Test') {
 		environment {
 			scannerHome = tool 'sonarqubescanner'
@@ -17,10 +22,6 @@ pipeline {
 			waitForQualityGate abortPipeline: true
         }
 		}
-		}
-		stage('Docker build package') {
-		steps {
-			sh 'echo "placeholder package"'
 		}
 		}
 		stage('Docker push package') {
