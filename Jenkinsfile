@@ -4,11 +4,6 @@ pipeline {
         CI = 'true' 
     }
     stages {
-        stage('Build') {
-            steps {
-				sh 'echo "Placeholder Build"'
-            }
-        }
 		stage('Sonarqube Test') {
 		environment {
 			scannerHome = tool 'sonarqubescanner'
@@ -20,14 +15,15 @@ pipeline {
 			timeout(time: 10, unit: 'MINUTES') {
 			waitForQualityGate abortPipeline: true
         }
+			sh 'echo "Testing Complete"'
 		}
 		}
-		stage('Docker package') {
+		stage('Docker build package') {
 		steps {
 			sh 'echo "placeholder package"'
 		}
 		}
-		stage('Docker push') {
+		stage('Docker push package') {
 		steps {
 			sh 'echo "placeholder push"'
 		}
