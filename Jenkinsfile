@@ -5,17 +5,9 @@ pipeline {
     }
     stages {
         stage('Build') {
-			agent {
-				docker {
-				image 'node:6-alpine' 
-				args '-p 3000:3000' 
-				}
-			}
             steps {
-                sh 'npm install' 
-				sh 'npm version'
-				sh 'ls'
-				sh 'echo "node ./server.js"'
+				sh 'echo "agent {docker {image 'node:6-alpine' args '-p 3000:3000' }}"'
+				sh 'echo "Placeholder Build"'
             }
         }
 		stage('Sonarqube Test') {
