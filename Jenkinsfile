@@ -3,7 +3,8 @@ pipeline {
 	environment {
         CI = 'true' 
     }
-    node {
+    stages {
+	node {
 		def app
 	
 		stage('Docker build package') {
@@ -32,4 +33,5 @@ pipeline {
 		}
 		}
     }
+}
 }
