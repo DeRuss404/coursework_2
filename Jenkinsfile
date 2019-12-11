@@ -4,9 +4,12 @@ pipeline {
         CI = 'true' 
     }
     stages {
+		def image
+	
 		stage('Docker build package') {
 		steps {
 			sh 'echo "placeholder package"'
+			image = docker.build("coursework")
 		}
 		}
 		stage('Sonarqube Test') {
