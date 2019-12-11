@@ -26,14 +26,17 @@ pipeline {
 		}
 		stage('Docker build and push image') {
 		steps {
-			app = docker.build("DeRuss404/coursework_2")
-			sh 'echo "Docker image built"'
+			node{
+				app = docker.build("DeRuss404/coursework_2")
+				sh 'echo "Docker image built"'
 			
-			docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+				app.push("${env.BUILD_NUMBER}")
+				app.push("latest")
+				}
+				
+				sh 'echo "placeholder push"'
 			}
-			sh 'echo "placeholder push"'
 		}
 		}
     }
