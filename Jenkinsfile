@@ -3,11 +3,13 @@ pipeline {
 	environment {
         CI = 'true' 
     }
-    stages {
+    node {
+		def app
+	
 		stage('Docker build package') {
 		steps {
 			sh 'echo "placeholder package"'
-			def image = docker.build("coursework")
+			app = docker.build("getintodevops/hellonode")
 		}
 		}
 		stage('Sonarqube Test') {
