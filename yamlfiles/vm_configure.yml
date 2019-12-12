@@ -23,7 +23,6 @@
   - name: Install Ansible for Azure
     command: pip install ansible[azure]
 
-
   - stat:
       path: /home/azureuser/Kuber_node.sh
     register: result
