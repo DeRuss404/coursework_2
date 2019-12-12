@@ -1,7 +1,3 @@
-#! /bin/bash
-# This script must be run using the sudo command
-# It will complete the docker installation and setup
-
 sudo apt-get update
 
 sudo apt-get -y remove unscd
