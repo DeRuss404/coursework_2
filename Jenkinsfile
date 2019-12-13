@@ -41,7 +41,7 @@ pipeline {
 		}
 		stage('Deployment') {
 		steps {
-				sh 'ssh -t azureuser@13.94.29.195 kubectl set image deployment/coursework_2 coursework_2=deruss404/coursework_2:latest'
+				sh 'ssh -t azureuser@13.94.29.195 kubectl set image deployment/coursework coursework=deruss404/coursework_2:latest'
 			}
 		}
 		}
