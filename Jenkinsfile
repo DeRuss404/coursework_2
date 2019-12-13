@@ -41,7 +41,9 @@ pipeline {
 		}
 		stage('Deployment') {
 		steps {
-				sh 'sshpass -p "DRUSSE204Enp8cfTc" ssh -t azureuser@13.94.29.195 kubectl set image deployments/courseworl_2 coursework_2=deruss404/coursework_2:late'
+				sh '''
+				sshpass -p "DRUSSE204Enp8cfTc" ssh -t azureuser@13.94.29.195 kubectl set image deployments/courseworl_2 coursework_2=deruss404/coursework_2:late
+				'''
 			}
 		}
 		}
