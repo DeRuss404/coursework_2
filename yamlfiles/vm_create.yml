@@ -10,7 +10,7 @@
     myNIC: ansible-node-nic
     myNetworkSecurityGroup: ansible-node-nsg
     myVM: ansible-node
-    mySSHkey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDchB53TDhryIO0RQCCAeyBbSKKuOd7L1QpFiwfZD3zsoue0O1YgZZxKlX5WaBfUGmQiOxzeAisTAPreanvP9FN82yCSshQpyJuwwp6FfWf5EgvpfG5vOj1gouHrk2s3z0JWt82MOwnSM4GYGsZ+f6u$
+    mySSHkey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDvfjHXM9HBYe8B2Mw4PhlaVa6wsdiTUeE+paHEf2z3e/yzOtZC8QMqD7oMcMXTRXnUGLcLC83ntrwvhacneo+CU9snOAe9rNqIr7lIBmAwF0JdVaz7PPgW4XFEPxKslgT/jwJGlhzGjA6noG++AOrSyKqdTYppyHbR00ZL9eVcdlImtG7+rUh61J9X/T42bPom/G9zdYtITrQwf8yb/WbYQnfeaxU3BQGERaUAisMHAydihO2ByXkcJaVMUZgxnP0TPNFaRtfXUG040mBtbGR6r6rT7fS60p9OFSRHxflYi9rS/ssbIMbd3DcRSpfOXs4Tg7H5R1OtMXAOP2jxSfsn
 
   tasks:
 
